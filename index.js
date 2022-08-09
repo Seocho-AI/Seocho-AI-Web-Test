@@ -16,65 +16,118 @@ var json = {
     }]
   }, {
     elements: [{
+      type: "radiogroup",
       name: "dog-experience",
       title: "강아지를 키운 경험",
-      type: "radiogroup",
+      isRequired: true,
       choices: [
         "강아지를 처음 키운다",
         "강아지를 키우고 있다",
         "강아지를 키운 적이 있다"
-      ],
-      isRequired: true
+      ]
     }]
   }, {
     elements: [{
+      type: "radiogroup",
+      name: "age",
+      title: "나이대가 어떻게 되세요?",
+      isRequired: true,
+      choices: [
+        "10대",
+        "20대",
+        "30대",
+        "40대",
+        "50대",
+        "60대 이상"
+      ]
+    }]
+  }, {
+    elements: [{
+      type: "radiogroup",
       name: "house-type",
       title: "주거 형태가 어떻게 되나요?",
-      type: "radiogroup",
+      isRequired: true,
       choices: [
         "다가구 주택",
         "단독주택",
         "아파트",
         "원룸",
         "기타"
-      ],
-      isRequired: true
+      ]
     }]
   }, {
     elements: [{
+      type: "radiogroup",
       name: "only-apartment",
       title: "아파트에 살기 적합한 강아지들 위주로 입양 하고 싶으신가요?",
-      type: "radiogroup",
+      colCount: 0,
+      isRequired: true,
       choices: [
         "예",
         "아니오"
-      ],
-      isRequired: true
+      ]
     }]
   }, {
     elements: [{
+      type: "radiogroup",
+      name: "dog-size",
+      title: "선호 하시는 유기견의 크기가 있나요?",
+      isRequired: true,
+      choices: [
+        "소형견",
+        "중형견",
+        "대형견"
+      ]
+    }]
+  }, {
+    elements: [{
+      type: "radiogroup",
       name: "kids",
       title: "아이를 키우고 있나요? (초등학생)",
-      type: "radiogroup",
+      colCount: 0,
+      isRequired: true,
       choices: [
         "예",
         "아니오"
-      ],
-      isRequired: true
+      ]
     }]
   }, {
     elements: [{
-      name: "spend-time",
-      title: "유기견이랑 얼마나 많은 시간을 보내실 수 있나요? (주)",
-      type: "radiogroup",
-      choices: [
-        "조금 : 1 ~ 5 시간",
-        "적절한 : 6 ~ 10 시간",
-        "많이 : 10+ 시간"
-      ],
-      isRequired: true
+        type: "radiogroup",
+        name: "spend-time",
+        title: "유기견이랑 얼마나 많은 시간을 보내실 수 있나요? (주)",
+        isRequired: true,
+        choices: [
+          "조금 : 1 ~ 5 시간",
+          "적절한 : 6 ~ 10 시간",
+          "많이 : 10+ 시간"
+        ]
+      },
+      {
+        type: "radiogroup",
+        name: "spend-type",
+        title: "시간을 같이 보낸다면 어떤 활동을 선호 하시나요?",
+        isRequired: true,
+        visibleIf: "{spend-time} = '조금 : 1 ~ 5 시간' || {spend-time} = '적절한 : 6 ~ 10 시간' || {spend-time} = '많이 : 10+ 시간' ",
+        choices: [
+          "실내 활동",
+          "둘다 왔다 갔다 한다",
+          "야외 활동"
+        ]
+      }
+    ]
+  }, {
+    elements: [{
+      type: "rating",
+      name: "bark-tolerance",
+      title: "강아지 짖는 소리를 얼마나 잘 참으시나요? (1 : 많이 안짖었으면 좋겠다 | 10 : 상관 없다)",
+      isRequired: true,
+      rateMin: 1,
+      rateMax: 10,
+      minRateDescription: "(필요할 때만 짖는다)",
+      maxRateDescription: "(자주 짖는다)"
     }]
-  }, ]
+  }]
 };
 
 // -------------------- Showing Alert to User -------------------- //
